@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VLP: Vision-Language Preference Learning for Embodied Manipulation.">
+  <meta name="keywords" content="Vision-Language Preference Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLP: Vision-Language Preference Learning for Embodied Manipulation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="VLP" style="vertical-align: middle">VLP</span>
+          </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            VLP: Vision-Language Preference Learning for Embodied Manipulation
+          </h2>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://anonymous.4open.science/r/VLP-ICLR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reward engineering is one of the key challenges in Reinforcement Learning (RL). Preference-based RL effectively addresses this issue by learning from human feedback. However, it is both time-consuming and expensive to collect human preference labels. In this paper, we propose a novel Vision-Language Preference learning framework, named VLP, which learns a vision-language preference model to provide preference feedback for embodied manipulation tasks. To achieve this, we define three types of language-conditioned preferences and construct a vision-language preference dataset, which contains versatile implicit preference orders without human annotations. The preference model learns to extract language-related features, and then serves as a preference annotator in various downstream tasks. The policy can be learned according to the annotated preferences via reward learning or direct policy optimization. Extensive empirical results on simulated embodied manipulation tasks demonstrate that our method provides accurate preferences and generalizes to unseen tasks and unseen language, outperforming the baselines by a large margin.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we propose a novel Vision-Language Preference alignment framework, named VLP, to provide generalized preference feedback for video pairs given language instructions. Specifically, we collect a video dataset from various policies under augmented language instructions, which contains implicit preference relations based on the trajectory optimality and the vision-language correspondence. Then, we propose a novel vision-language alignment architecture to learn a trajectory-wise preference model for preference labeling, which consists of a vision encoder, a language encoder, and a cross-modal encoder to facilitate vision-language alignment. The preference model is optimized by intra-task and inter-task preferences that are implicitly contained in the dataset. In inference, VLP provides preference labels for target tasks and can even generalize to unseen tasks and unseen language. We provide an analysis to show the learned preference model resembles the negative regret of the segment under mild conditions. The preference labels given by VLP are employed for various downstream preference optimization algorithms to facilitate policy learning.
+          </p>
+          <img src="static/images/VLP_framework.png" alt="VLP_framework" class="center">
+          <br>
+          <div class="content has-text-justified" class="center">
+            <b>Figure 1:</b> Comparison of VLP (right) with previous methods (left) of providing preference labels. VLP learns a vision-language preference model from intra-task and inter-task preferences, and provides generalized preference feedback for vision pairs given language instructions.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">Videos</h2>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/button-press/PIQL_VLP_0_s2_rew3.296_len51.mp4" type="video/mp4">
+        </video>
+        <h3 class="title is-5">Button Press</h3>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/door-close/PIQL_VLP_0_s2_rew14.556_len90.mp4" type="video/mp4">
+        </video>
+        <h3 class="title is-5">Door Close</h3>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/drawer-close/PIQL_VLP_0_s2_rew1.000_len36.mp4" type="video/mp4">
+        </video>
+        <h3 class="title is-5">Drawer Close</h3>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/faucet-close/PIQL_VLP_0_s0_rew31.816_len80.mp4" type="video/mp4">
+        </video>
+        <h3 class="title is-5">Faucet Close</h3>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/window-open/PIQL_VLP_0_s0_rew8.784_len89.mp4" type="video/mp4">
+        </video>
+        <h3 class="title is-5">Window Open</h3>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">How do VLP labels compare with scripted labels in offline RLHF?</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-justified">
+          <div class="content has-text-justified" class="center">
+            <p><b>Table 1:</b> Success rate of RLHF methods with scripted labels and VLP labels. The results are reported with mean and standard deviation across five random seeds. The result of VLP is <span class="shaded">shaded</span> and is <b>bolded</b> if it exceeds or is comparable with that of RLHF approaches with scripted labels. VLP Acc. denotes the accuracy of preference labels inferred by VLP compared with scripted labels.</p>
+          </div>
+          <img src="./static/images/main_rlhf.png" alt="main_rlhf" class="center">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">How does VLP compare with other vision-language rewards approaches?</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-justified">
+          <div class="content has-text-justified" class="center">
+            <p><b>Table 2:</b> Success rate of VLP (i.e., P-IQL trained with VLP labels) against IQL with VLM <b>rewards</b>. The results are reported with mean and standard deviation across five random seeds. The result of VLP is <span class="shaded">shaded</span> and the best score of all methods is <b>bolded</b>.</p>
+          </div>
+          <img src="./static/images/main_vlm.png" alt="main_rlhf" class="center">
+        </div>
+        <div class="content has-text-justified">
+          <div class="content has-text-justified" class="center">
+            <p><b>Table 3:</b> Success rate of VLP (i.e., P-IQL trained with VLP labels) against P-IQL with VLM <b>preferences</b> (denoted with prefix <b>P-</b>). The results are reported with mean and standard deviation across five random seeds. The result of VLP is <span class="shaded">shaded</span> and the best score of all methods is <b>bolded</b>.</p>
+          </div>
+          <img src="./static/images/main_vlm_p.png" alt="main_rlhf_p" class="center">
+        </div>
+        <div class="content has-text-justified">
+          <div class="content has-text-justified" class="center">
+            <p><b>Table 4:</b> The correlation coefficient of VLM rewards with ground-truth rewards and VLP labels with scripted preference labels. Larger correlation means the predicted values are more correlated with the ground-truth.</p>
+          </div>
+          <img src="./static/images/main_corr.png" alt="main_corr" class="center">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">How does VLP generalize to unseen tasks and language?</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-justified">
+          <div class="content has-text-justified" class="center">
+            <p><b>Table 5:</b> The generalization abilities of our method on 5 unseen tasks with different types of language. Acc. denotes the accuracy of preference labels inferred by VLP compared with ground-truth labels.</p>
+          </div>
+          <img src="./static/images/main_gen.png" alt="main_gen" class="center">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{Anonymous,
+  title     = {VLP: Vision-Language Preference Learning for Embodied Manipulation
+},
+  author    = {Anonymous Authors},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website template is adapted from <a rel="template"
+            href="https://nerfies.github.io/">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .shaded {
+    /* 10% opacity cyan */
+    background-color: rgba(0, 255, 255, 0.1);
+  }
+</style>
+
+</body>
+</html>
